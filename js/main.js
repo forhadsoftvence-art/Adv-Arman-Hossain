@@ -156,6 +156,16 @@
     });
   });
 
+  // Netlify Deploy Preview toolbar: hide only on deploy-preview hostnames, once.
+  const previewHost = /^deploy-preview-\d+--[^.]+\.netlify\.app$/i.test(location.hostname);
+  const params = new URLSearchParams(location.search);
+  if (previewHost && !params.has('ntl-drawer-state') && !params.has('ntl-drawer-visible')) {
+    params.set('ntl-drawer-state', 'hidden');
+    const query = params.toString();
+    const nextUrl = location.pathname + (query ? `?${query}` : '') + location.hash;
+    window.location.replace(nextUrl);
+  }
+
   // Local validation only: nothing is submitted to a server or stored.
   const form = $('#contactForm');
   const status = $('#formStatus');

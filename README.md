@@ -62,3 +62,8 @@ node tests/v2.cjs
 - চেক ডিজঅনারের জন্য সঠিক **১৩৮ ধারা** ব্যবহার করা হয়েছে। নির্দিষ্ট মামলার পরামর্শ বা ফলাফলের নিশ্চয়তা দাবি করা হয়নি।
 - নিজের public domain জানা হলে `og:image` ও JSON-LD `image`-এ absolute public URL বসান; এখন আগের মতো relative asset path আছে।
 - যোগাযোগ বদলালে `index.html` ও `js/main.js` দুটোতেই ইমেইল/ফোন এবং JSON-LD মিলিয়ে আপডেট করুন।
+
+
+## Netlify Deploy Preview toolbar
+
+Deploy Preview-এ toolbar drawer ডিফল্টভাবে hidden করা হয়: কেবল `deploy-preview-N--SITE.netlify.app` hostname-এ, URL-এ `ntl-drawer-state` বা explicit `ntl-drawer-visible` না থাকলে query/hash অক্ষুণ্ণ রেখে একবার URL replace হয়। Localhost, Arena preview, production ও custom domain বদলায় না। স্থায়ীভাবে Collaboration tools বন্ধ করতে Netlify dashboard-এর **Project configuration → Notifications → Collaboration tools** setting ব্যবহার করুন; dashboard access ছাড়া repository থেকে setting পরিবর্তন দাবি করা হয়নি।

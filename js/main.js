@@ -2,6 +2,27 @@
 (() => {
   'use strict';
 
+  // Netlify Deploy Preview toolbar: hidden by default. Works only on
+  // deploy-preview-N--SITE.netlify.app hostnames; a single location.replace
+  // adds ?ntl-drawer-state=hidden when no explicit ntl-drawer-state exists in
+  // the query or hash, so an explicit visible override is respected and no
+  // redirect loop is possible. Localhost, Arena previews, production and
+  // custom domains are never touched.
+  function deployPreviewHiddenUrl(href) {
+    try {
+      const url = new URL(href);
+      if (!/^deploy-preview-\d+--[a-z0-9-]+\.netlify\.app$/i.test(url.hostname)) return null;
+      if (url.searchParams.has('ntl-drawer-state') || url.hash.includes('ntl-drawer-state')) return null;
+      url.searchParams.set('ntl-drawer-state', 'hidden');
+      return url.href;
+    } catch (_) {
+      return null;
+    }
+  }
+  const toolbarHref = deployPreviewHiddenUrl(window.location.href);
+  if (toolbarHref) window.location.replace(toolbarHref);
+  window.__netlifyPreviewHiddenUrl = deployPreviewHiddenUrl; // test hook
+
   const $ = (selector, root = document) => root.querySelector(selector);
   const $$ = (selector, root = document) => [...root.querySelectorAll(selector)];
   const bengaliDigits = '০১২৩৪৫৬৭৮৯';

@@ -1,0 +1,13 @@
+# Netlify কনফিগারেশন — সম্পূর্ণ স্ট্যাটিক সাইট, কোনো বিল্ড লাগবে না
+[build]
+  # রিপোজিটরির রুট ফোল্ডারই পাবলিশ হবে (index.html এখানেই আছে)
+  publish = "."
+  # বিল্ড কমান্ড লাগে না; খালি থাকলে Netlify বিল্ড স্কিপ করে
+  command = "echo 'Static site - no build needed'"
+
+# ব্রাঞ্চ-ডিপ্লয় প্রিভিউতেও একই সেটিং
+[context.branch-deploy]
+  publish = "."
+
+[context.deploy-preview]
+  publish = "."

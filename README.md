@@ -19,7 +19,8 @@
 - বাংলা সংখ্যায় কাউন্টার ও বছর, স্ক্রল-স্পাই, রিভিল, থামানো যায় এমন মারকুই, কিবোর্ডে ব্যবহারযোগ্য FAQ, ব্যাক-টু-টপ।
 - ডান-নিচে কল ও হোয়াটসঅ্যাপ স্ট্যাক; যোগাযোগের ফোন ও হোয়াটসঅ্যাপ কার্ডের পুরো অংশ ক্লিকযোগ্য।
 - Reduced-motion সম্মান করা হয়। JavaScript ছাড়াও বিষয়বস্তু, নেভিগেশন, FAQ, চূড়ান্ত কাউন্টার এবং সরাসরি যোগাযোগ লিংক ব্যবহারযোগ্য।
-- আগের `assets/img/advocate-portrait.jpg` ও `assets/img/law-chamber.jpg` অপরিবর্তিত।
+- হিরোর প্রতিকৃতি এখন ব্যবহারকারীর দেওয়া প্রফেশনাল ছবি: সোর্স থেকে ক্রপ করা `assets/img/hero-portrait.webp` / `.jpg` (১x, ৪৮০×৫১৮) ও `hero-portrait@2x.webp` / `@2x.jpg` (২x, ৯৪০×১০১৫), `<picture>` + `srcset` দিয়ে WebP আগে ও JPEG fallback; প্রতিটি ব্রেকপয়েন্টে ফ্রেমের ভেতরে ঠিকভাবে বসে।
+- আগের `assets/img/advocate-portrait.jpg` (Open Graph/JSON-LD ছবি), `advocate-portrait.png` ও `assets/img/law-chamber.jpg` অপরিবর্তিত।
 
 ## লোকালি চালানো
 
